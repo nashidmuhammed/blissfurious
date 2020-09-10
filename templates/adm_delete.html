@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>ADMIN | Bliss Furious</title>
+
+</head>
+
+<body class="b_adm_pnl">
+
+<div class="wrapper">
+
+    <nav id="sidebar" class="adm_pnl">
+
+        <div class="sidebar-header">
+            <span>Bliss Furious</span>
+            <h3 class="adm_hd">ADMIN PANEL</h3>
+        </div>
+        <ul class="lisst-unstyled components">
+
+            <li>
+                <a href="adm" class="n_slider">DashBoard</a>
+            </li>
+            <li>
+                    <a href="#Submenu_article" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle n_slider" style="background-color:black;">Article</a>
+                    <ul class="collapse list-unstyled adm_submenu" id="Submenu_article">
+                        <li>
+                            <a class="n_slider" href="adm_post">Post</a>
+                        </li>
+                        <li>
+                            <a class="n_slider" href="adm_update">Update</a>
+                        </li>
+                        <li class="active">
+                            <a class="n_slider" href="adm_delete">Delete</a>
+                        </li>
+                        <li>
+                            <a class="n_slider" href="adm_view">View</a>
+                        </li>
+                    </ul>
+                </li>
+            <li>
+                <a href="#Submenu_message" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle n_slider">Message</a>
+                <ul class="collapse list-unstyled adm_submenu" id="Submenu_message">
+                    <li>
+                        <a class="n_slider" href="adm_message">Contact</a>
+                    </li>
+                    <li>
+                        <a class="n_slider" href="adm_comment">Comment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="adm_carousel" class="n_slider">Carousel</a>
+            </li>
+
+            <li>
+                <a href="photography" class="n_slider">Join</a>
+            </li>
+        </ul>
+
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="#" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    </nav>
+
+
+</div>
+    <section id="content">
+
+
+    <div id="sidebarCollaps">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    <nav class="adm_navbar navbar  navbar-expand navbar-dark bg-dark" >
+        <div class=" navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" ><i class="fa fa-bell" aria-hidden="true"></i><span>05</span></a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span> 03 </span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                naszi
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="."><i class="fa fa-home" aria-hidden="true"></i> Bliss Furious</a>
+                <a class="dropdown-item" href="superuser"><i class="fa fa-user-secret" aria-hidden="true"></i> SuperUser</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="adm_logout"><i class="fa fa-power-off" style="color:red" aria-hidden="true"></i> Logout</a>
+              </div>
+            </li>
+            <li class="nav-link">
+                <img width="30" height="30" src="{% static 'images/profile.jpg' %}">
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="adm_body adm_post">
+        <div class="container">
+            <div class="hd"><h2>Article Delete</h2></div>
+            <div class="alert alert-danger" role="alert" style="text-align:center">
+                 Warning : If instantly delete, press enter after typing Art-id
+                <p>Or want to show the article before delete click Submit button</p>
+            </div>
+            <div id="messages" class="alert alert-success" role="alert">
+                      {% for message in messages %}
+                        {{message}}
+                      {% endfor %}
+            </div>
+
+          <form action="adm_delete" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="art_id">ART-ID</span>
+                    </div>
+                    <input value="" id="art_val" name="id"  type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Article Id">
+                 </div>
+                   <div class="alert alert-warning" role="alert"></div>
+                   <button type="button" class="submit_art btn btn-outline-success adm_btn">Submit</button>
+
+                <div class="up_part" style="display:none">
+                <div class="card mx-auto" style="width: 50%;">
+                    <img class="card-img-top" src="" style="height:200px;"  alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title"><a href="#" class="n_slider"><i class="fa fa-eye" aria-hidden="true"></i></a> </h5>
+                      <p class="card-text art_desc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p id="category" style="color:green;"></p>
+                        <p><small class="text-muted"><a id="auth_name" href="#"> </a> <span id="art_date"></span></small></p>
+                      
+                    </div>
+                </div>
+
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteModalCenter">
+                        DELETE
+                    </button>
+        
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLongTitle">Confirm Delete</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            Yes!
+                            Ready to delete the post
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Confirm</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+            </div>
+
+          </form>
+            
+
+        </div>
+        
+    </div>
+
+</section>
+<script type="text/javascript">
+    $('.submit_art').click(function(){
+    var v = $('#art_val').val();
+    console.log("get ready");
+        $.ajax({
+            type: 'GET',
+            url: 'adm_delete_sub',
+            data: {v:v},
+            success: function(data) {
+            console.log("data ="+data.res);
+            if (data.res == 0) {
+            $('.alert-warning').html(data.value);
+            $('.alert-success').hide();
+            }
+            else {
+            $('.up_part').show();
+            $('.alert').hide();
+            $('.submit_art').hide();
+            $('#auth_name').html(data.auther);
+            $('#art_date').html(data.date);
+            $('#category').html(data.cat);
+            $('.card-title').html(data.cap);
+            $('.art_desc').html(data.desc);
+            $('.card-img-top').attr('src',data.img);
+            }
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+
+
+
+
+{% endblock %}
+</body>
+</html>

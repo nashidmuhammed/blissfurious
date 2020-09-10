@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>ADMIN | Bliss Furious</title>
+
+</head>
+
+<body class="b_adm_pnl">
+
+<div class="wrapper">
+
+    <nav id="sidebar" class="adm_pnl">
+
+        <div class="sidebar-header">
+            <span>Bliss Furious</span>
+            <h3 class="adm_hd">ADMIN PANEL</h3>
+        </div>
+        <ul class="lisst-unstyled components">
+
+            <li>
+                <a href="adm" class="n_slider">DashBoard</a>
+            </li>
+            <li>
+                    <a href="#Submenu_article" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle n_slider">Article</a>
+                    <ul class="collapse list-unstyled adm_submenu" id="Submenu_article">
+                        <li>
+                            <a class="n_slider" href="adm_post">Post</a>
+                        </li>
+                        <li>
+                            <a class="n_slider" href="adm_update">Update</a>
+                        </li>
+                        <li>
+                            <a class="n_slider" href="adm_delete">Delete</a>
+                        </li>
+                        <li>
+                            <a class="n_slider" href="adm_view">View</a>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+                <a href="#Submenu_message" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle n_slider" style="background-color:black;">Message</a>
+                <ul class="collapse list-unstyled adm_submenu" id="Submenu_message">
+                    <li class="active">
+                        <a class="n_slider" href="adm_message">Contact</a>
+                    </li>
+                    <li>
+                        <a class="n_slider" href="adm_comment">Comment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="adm_carousel" class="n_slider">Carousel</a>
+            </li>
+
+            <li>
+                <a href="photography" class="n_slider">Join</a>
+            </li>
+        </ul>
+
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="#" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    </nav>
+
+
+</div>
+    <section id="content">
+
+
+    <div id="sidebarCollaps">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    <nav class="adm_navbar navbar  navbar-expand navbar-dark bg-dark" >
+        <div class=" navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" ><i class="fa fa-bell" aria-hidden="true"></i><span>05</span></a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span> 03 </span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                naszi
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="."><i class="fa fa-home" aria-hidden="true"></i> Bliss Furious</a>
+                <a class="dropdown-item" href="superuser"><i class="fa fa-user-secret" aria-hidden="true"></i> SuperUser</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="adm_logout"><i class="fa fa-power-off" style="color:red" aria-hidden="true"></i> Logout</a>
+              </div>
+            </li>
+            <li class="nav-link">
+                <img width="30" height="30" src="{% static 'images/profile.jpg' %}">
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="adm_body adm_msg">
+        <div class="container">
+            <div class="hd"><h2>Messages</h2></div>
+            <div class="table-responsive">
+            <table class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">DATE</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">SUBJECT</th>
+                    <th scope="col">MESSAGE</th>
+                    <th scope="col">ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in msg %}
+                  <tr>
+                    <td>{{ i.date }}</td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.subject }}</td>
+                    <td>{{ i.message }}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary">Replay</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+            
+
+        </div>
+        
+    </div>
+
+</section>
+
+
+
+
+
+{% endblock %}
+</body>
+</html>

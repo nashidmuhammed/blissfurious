@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>ADMIN | Bliss Furious</title>
+
+</head>    
+
+<body class="b_adm_pnl">
+
+<div class="wrapper">
+
+    <nav id="sidebar" class="adm_pnl">
+
+        <div class="sidebar-header">
+            <span>Bliss Furious</span>
+            <h3 class="adm_hd">ADMIN PANEL</h3>
+        </div>
+        <ul class="lisst-unstyled components">
+
+            <li class="active">
+                <a href="adm" class="n_slider">DashBoard</a>
+            </li>
+            <li>
+                    <a href="#Submenu_article" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle n_slider">Article</a>
+                    <ul class="collapse list-unstyled adm_submenu" id="Submenu_article">
+                        <li>
+                            <a class="n_slider" href="adm_post">Post</a>
+                        </li>
+                        <li>
+                            <a class="n_slider" href="adm_update">Update</a>
+                        </li>
+                        <li>
+                            <a class="n_slider" href="adm_delete">Delete</a>
+                        </li>
+                        <li>
+                            <a class="n_slider" href="adm_view">View</a>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+                <a href="#Submenu_message" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle n_slider">Message</a>
+                <ul class="collapse list-unstyled adm_submenu" id="Submenu_message">
+                    <li>
+                        <a class="n_slider" href="adm_message">Contact</a>
+                    </li>
+                    <li>
+                        <a class="n_slider" href="adm_comment">Comment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="adm_carousel" class="n_slider">Carousel</a>
+            </li>
+
+            <li>
+                <a href="photography" class="n_slider">Join</a>
+            </li>
+        </ul>
+
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="#" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    </nav>
+
+    
+</div>
+    <section id="content">
+
+
+    <div id="sidebarCollaps">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+   <nav class="adm_navbar navbar  navbar-expand navbar-dark bg-dark" >
+        <div class=" navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" ><i class="fa fa-bell" aria-hidden="true"></i><span>05</span></a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span> 03 </span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                naszi
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="."><i class="fa fa-home" aria-hidden="true"></i> Bliss Furious</a>
+                <a class="dropdown-item" href="superuser"><i class="fa fa-user-secret" aria-hidden="true"></i> SuperUser</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="adm_logout"><i class="fa fa-power-off" style="color:red" aria-hidden="true"></i> Logout</a>
+              </div>
+            </li>
+            <li class="nav-link">
+                <img width="30" height="30" src="{% static 'images/profile.jpg' %}">
+            </li>
+          </ul>
+        </div>
+   </nav>
+
+  <!--  <div class="adm_navbar">
+        <img src="{% static 'images/profile.jpg' %}">
+        <a href="#home">naszi</a>
+        <a href="#" ><i class="fa fa-envelope" aria-hidden="true"></i><span> 03 </span></a>
+        <a href="#" ><i class="fa fa-bell" aria-hidden="true"></i><span>05</span></a>
+    </div>-->
+    <div class="adm_body adm_main">
+        <div class="row">
+            <div class="col-sm-6">
+
+                <form action="prof" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                <div class="input-group">
+                    <div class="custom-file">
+                      <input name="prof_img" type="file" accept="image/*" class="custom-file-input " id="inputGroupFile01">
+                      <label id="inputGroupFile01_chng"  class="custom-file-label" for="inputGroupFile01">Change Profile Photo</label>
+                    </div>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-success" type="submit">Update</button>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <textarea name="desc" rows="6"  class="form-control" placeholder="Description" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-success" type="submit">Update</button>
+                    </div>
+                </div>
+                </form>
+
+                <form action="cover" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="input-group">
+                    <div class="custom-file">
+                      <input name="cov_img" type="file" accept="image/*" class="custom-file-input " id="inputGroupFile02">
+                      <label id="inputGroupFile02_chng"  class="custom-file-label" for="inputGroupFile02">Change Cover Photo</label>
+                    </div>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-success"  type="submit">Update</button>
+                    </div>
+                </div>
+                <br><br><br><br>
+                <br><br><br>
+                <div class="input-group mb-3">
+                    <textarea name="about" rows="6"  class="form-control" placeholder="Type content for 'About' page"></textarea>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-success" type="submit">Update</button>
+                    </div>
+                </div>
+                </form>
+
+                <form action="cont_edit" method="post" enctype="multipart/form-data" style="background-color:#294d2c7c" >{% csrf_token %}
+                 <div class="container">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Email</span>
+                    </div>
+                    <input name="email" type="email" class="form-control" aria-label="ContactEmail" required>
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Phone</span>
+                    </div>
+                    <input name="phone" type="text" class="form-control" aria-label="ContactPhone" required>
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Address</span>
+                    </div>
+                    <input name="address" type="text" class="form-control" aria-label="ContactAddress" required>
+                </div>
+                 <button class="btn btn-outline-success adm_btn" type="submit">UPDATE Email, Phone & address</button>
+                     <br>
+                 </div>
+                </form>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="adm_desc">
+                    <img src="{{prof.prof_img.url}}">
+                    <h2>Hello I'm</h2>
+                    <h1>Nashid Muhammed</h1>
+                    <p>{{prof.description}}</p>
+                    <p><a class="more n_slider">More About Me</a></p>
+                </div>
+                <div class="adm_main_img"><img src="{{prof.cov_img.url}}"></div>
+                <br><br><br><br>
+                <br><br><br>
+                <p>{{prof.about}}</p>
+                <div class="container" style="background-color:#294d2c7c">
+                <div class="input-group"><p>{{prof.email}}</p></div>
+                <div class="input-group"><p>{{prof.phone}}</p></div>
+                <div class="input-group"><p>{{prof.address}}</p></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</section>
+
+
+
+{% endblock %}
+</body>
+</html>

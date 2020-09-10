@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>ADMIN | Bliss Furious</title>
+
+</head>
+
+<body class="b_adm_pnl">
+
+<div class="wrapper">
+
+     <nav id="sidebar" class="adm_pnl">
+        <div class="adm_side_img">
+            <img src="{% static 'images/digitalart_adm.jpg' %}" width="100%">
+        </div>
+
+
+        <div class="sidebar-header">
+            <span>Bliss Furious</span>
+            <h3 class="adm_hd">Admin Panel</h3>
+        </div>
+
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="#" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    </nav>
+
+
+</div>
+<section id="content">
+
+
+    <div id="sidebarCollaps">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    <nav class="adm_navbar navbar  navbar-expand navbar-dark bg-dark" >
+        <div class=" navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                naszi
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="."><i class="fa fa-home" aria-hidden="true"></i> Bliss Furious</a>
+                <a class="dropdown-item" href="superuser"><i class="fa fa-user-secret" aria-hidden="true"></i> SuperUser</a>
+              </div>
+            </li>
+            <li class="nav-link">
+                <img width="30" height="30" src="{% static 'images/profile.jpg' %}">
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="adm_body adm_post">
+        <div class="container">
+            <div class="hd"><h2>Register Admin</h2></div>
+
+            <form method="POST"> {% csrf_token %}
+
+              <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="admin_id">Admin ID</span>
+                    </div>
+                    {{form.username}}
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="admin_email">Email</span>
+                    </div>
+                    {{form.email}}
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="password1">Password </span>
+                    </div>
+                    {{form.password1}}
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="password2">Password </span>
+                    </div>
+                    {{form.password2}}
+                    <!--<input name="password" type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Retype password" required>-->
+                </div>
+                  <div class="alert alert-warning" role="alert">
+                      {{form.errors}}
+                  </div>
+                <button class="btn btn-outline-success adm_btn">
+                    Register Account
+                </button>
+                  <p>Already have an account? <a href="adm_login"  style="color:#ffff">Login</a> </p>
+              </div>
+        </form>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder='Admin name...';
+    form_fields[2].placeholder='Email address...';
+    form_fields[3].placeholder='Enter password...';
+    form_fields[4].placeholder='Re-enter password...';
+
+    for (var field in form_fields){
+        form_fields[field].className += 'form-control'
+        }
+
+</script>
+
+
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+

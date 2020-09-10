@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>Contact | Bliss Furious</title>
+
+
+</head>    
+
+<body>
+
+<div class="wrapper">
+
+    <nav id="sidebar">
+
+        <div class="sidebar-header">
+            <h3 class="adm_hd">Bliss Furious</h3>
+        </div>
+        <ul class="lisst-unstyled components">
+
+            <li>
+                <a href="." class="n_slider">Home</a>
+            </li>
+            <li>
+                <a href="photography" class="n_slider">Photography</a>
+            </li>
+            <li>
+                <a href="travel" class="n_slider">Travel</a>
+            </li>
+            <li>
+                <a href="tech" class="n_slider">Technologies</a>
+            </li>
+            <li>
+                <a href="about" class="n_slider">About</a>
+            </li>
+            <li class="active">
+                <a href="contact" class="n_slider">Contact</a>
+            </li>
+        </ul>
+
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="https://www.facebook.com/nashid.muhammed.t/" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/MUHAMMEDNASHIDT" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://wa.me/7559816534" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/na_szi/" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/nashid-muhammed-196022186/" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    </nav>
+
+    
+</div>
+    <section id="content">
+
+
+        <div id="sidebarCollaps">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+    
+        <section class="contact" >
+            <div class="container">
+              <div class="hd">
+                <h2>Contact Information</h2>
+                <div></div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row ic">
+                  <div class="col-sm-4 ">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <p>{{ pro.email }}</p>
+                  </div>
+                  <div class="col-sm-4">
+                    <i class="fa fa-phone-square" aria-hidden="true"></i>
+                    <p>{{ pro.phone }}</p>
+                  </div>
+                  <div class="col-sm-4">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <p>{{ pro.address }}
+                    </p>
+                  </div>
+              </div>
+            <div class="row">
+              <div class="col-sm-6">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3694.586210056081!2d75.81563190941341!3d11.167075853663144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba650b0c4f0385b%3A0xdb3078f92bfa8350!2zMTHCsDEwJzAwLjUiTiA3NcKwNDgnNTkuNCJF!5e0!3m2!1sen!2sin!4v1598717619670!5m2!1sen!2sin"
+                          width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              </div>
+              <div class="col-sm-6 inp">
+                <form action="contact" method="POST">{% csrf_token %}
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control " placeholder="Name" required>
+                  <input type="email" name="email" class="form-control" placeholder="Email" required>
+                  <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                  <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+                  <button class="btn art_cont"><span>Send Message</span></button>
+                  
+                </div>
+                </form>
+              </div>
+            </div>
+            </div>
+          </section>
+
+        <footer class="container-fluid text-center">
+            <div class="container-fluid footer_main">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h5 style="text-align: left;">Naszi</h5>
+                    <h6>Simple Personal Blog</h6>
+                    <p>The Platform for to Explore and Show our Happiness</p>
+                    <a href="#" class="n_slider">Join Now</a>
+                </div>
+                <div class="col-sm-4">
+                  <h5>Quick Links</h5>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="photography">Photography</a></li>
+                    <li class="list-group-item"><a href="travel">Travel </a></li>
+                    <li class="list-group-item"><a href="tech">Food </a></li>
+                    <li class="list-group-item"><a href="about">Technologies</a></li>
+                    <li class="list-group-item"><a href="#">Services</a></li>
+                    <li class="list-group-item"><a href="contact">Contact</a></li>
+                  </ul>
+                  
+                </div>
+               
+                <div class="col-sm-4">
+                    <img src="{% static 'images/main.jpg' %}" class="icon">
+                </div>                
+            </div>
+        </div>      
+        </footer>
+
+    </section>
+
+
+
+
+
+{% endblock %}
+ </body>
+</html>

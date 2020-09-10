@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>ADMIN | Bliss Furious</title>
+
+</head>    
+
+<body class="b_adm_pnl">
+
+<div class="wrapper">
+
+     <nav id="sidebar" class="adm_pnl">
+        <div class="adm_side_img">
+            <img src="{% static 'images/digitalart_adm.jpg' %}" width="100%">
+        </div>
+
+
+        <div class="sidebar-header">
+            <span>Bliss Furious</span>
+            <h3 class="adm_hd">Admin Panel</h3>
+        </div>
+       
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="#" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    </nav>
+
+    
+</div>
+<section id="content">
+
+
+    <div id="sidebarCollaps">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    <nav class="adm_navbar navbar  navbar-expand navbar-dark bg-dark" >
+        <div class=" navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                naszi
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="."><i class="fa fa-home" aria-hidden="true"></i> Bliss Furious</a>
+                <a class="dropdown-item" href="superuser"><i class="fa fa-user-secret" aria-hidden="true"></i> SuperUser</a>
+              </div>
+            </li>
+            <li class="nav-link">
+                <img width="30" height="30" src="{% static 'images/profile.jpg' %}">
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="adm_body adm_post">
+        <div class="container">
+            <div class="hd"><h2>Login Admin</h2></div>
+
+            <form  method="POST"> {% csrf_token %}
+                
+              <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="admin_id">Admin ID</span>
+                    </div>
+                    <input name="admin_id" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="admin id" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="pass">Password </span>
+                    </div>
+                    <input name="password" type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="secured password" required>
+                </div>
+                  <div id="messages" class="alert alert-info" role="alert">
+                      {% for message in messages %}
+                        {{message}}
+                      {% endfor %}
+                  </div>
+                <button class="btn btn-outline-success adm_btn">
+                    Login
+                </button>
+              </div>
+        </form>
+            
+
+        </div>
+        
+    </div>
+
+</section>
+
+{% endblock %}
+</body>
+</html>

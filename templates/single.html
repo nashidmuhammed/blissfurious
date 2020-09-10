@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>Bliss Furious</title>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <nav id="sidebar">
+
+        <div class="sidebar-header">
+            <h3 class="adm_hd">Bliss Furious</h3>
+        </div>
+        <ul class="lisst-unstyled components">
+
+            <li class="active">
+                <a href="{% url 'index' %}" class="n_slider">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'photography' %}" class="n_slider">Photography</a>
+            </li>
+            <li>
+                <a href="{% url 'travel' %}" class="n_slider">Travel</a>
+            </li>
+            <li>
+                <a href="{% url 'tech' %}" class="n_slider">Technologies</a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}" class="n_slider">About</a>
+            </li>
+            <li>
+                <a href="{% url 'contact' %}" class="n_slider">Contact</a>
+            </li>
+        </ul>
+
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="https://www.facebook.com/nashid.muhammed.t/" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/MUHAMMEDNASHIDT" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://wa.me/7559816534" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/na_szi/" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/nashid-muhammed-196022186/" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    </nav>
+
+    
+</div>
+    <section id="content">
+
+
+        <div id="sidebarCollaps">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        <!--<div class="navbar_menu">
+            <a type="button" id="sidebarCollaps">
+                <i class="fa fa-minus" aria-hidden="true"></i>
+                <i class="fa fa-minus" aria-hidden="true"></i>
+                <i class="fa fa-minus" aria-hidden="true"></i>
+            </a>
+        </div>-->
+
+            
+        
+
+        <div class="art_single">
+
+                <h1 class="hd"><span><a href="#" class="single_cat">{{art.category}}</a></span> {{art.caption}}</h1>
+                <div style="text-align:center" id="messages" class="alert alert-success" role="alert">
+                      {% for message in messages %}
+                        {{message}}
+                      {% endfor %}
+                </div>
+                <div class="container">                    
+                    <p>
+                        <img class="art_single_img" src="{{art.cover_img.url}}">
+                        {{ art.description }}
+                    </p>
+                    <br><br>
+
+                    <label><h5>Comments:</h5></label>
+                    {% if com %}
+                        {% for i in com %}
+                        <div class="form-group art_single_cmt">
+                            <label >{{ i.name }}:</label><span style="margin-top:12px; font-size:12px;position:absolute;color:#bed1c1">{{ i.date }}</span>
+                            <!--<textarea class="form-control" id="comment1" onkeyup="textAreaAdjust(this)" style="overflow-y: scroll;" disabled>
+                                {{ i.message }}
+                            </textarea>-->
+                            <div style="border: ridge 2px;padding: 15px;width: 100%;min-height: 3em;overflow: auto;border-radius:20px;background-color:#eaffed" class="divtext" aria-disabled="false">
+                                {{ i.message }}</div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                    <p>No comments</p>
+                    {% endif %}
+
+
+                    <br><br>
+
+                    <form action="{% url 'comments' %}" method="POST">{% csrf_token %}
+                        <input hidden name="id" value="{{art.art_id}}">
+                    <div class="form-group">
+                        <label for="comment">Post Your Comment:</label>
+                        <textarea name="comment" class="form-control" rows="5" id="comment" placeholder="Enter your comment / opinion" onkeyup="textAreaAdjust(this)" style="overflow:hidden" required></textarea>
+                   
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Name</span>
+                        </div>
+                        <input name="name" type="text" class="form-control" placeholder="Enter your name" aria-label="Username" aria-describedby="basic-addon1" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon2">Email</span>
+                        </div>
+                        <input name="email" type="email" class="form-control" placeholder="email id" aria-label="email" aria-describedby="basic-addon1" required>
+                    </div>
+                      
+                    <button class="btn btn-outline-success adm_btn">Submit</button>
+
+                    </form>  
+                </div>
+            <br><br>
+                
+
+            
+                
+        </div>  
+
+        <footer class="container-fluid text-center">
+            <div class="container-fluid footer_main">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h5 style="text-align: left;">Naszi</h5>
+                    <h6>Simple Personal Blog</h6>
+                    <p>The Platform for to Explore and Show our Happiness</p>
+                    <a href="#" class="n_slider">Join Now</a>
+                </div>
+                <div class="col-sm-4">
+                  <h5>Quick Links</h5>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="#">Photography</a></li>
+                    <li class="list-group-item"><a href="#">Travel </a></li>
+                    <li class="list-group-item"><a href="#">Food </a></li>
+                    <li class="list-group-item"><a href="#">Technologies</a></li>
+                    <li class="list-group-item"><a href="#">Services</a></li>
+                    <li class="list-group-item"><a href="#">Contact</a></li>
+                  </ul>
+                  
+                </div>
+               
+                <div class="col-sm-4">
+                    <img src="images/main.jpg" class="icon">
+                </div>                
+            </div>
+        </div>      
+        </footer>
+
+    </section>
+
+
+
+{% endblock %}
+    </body>
+</html>

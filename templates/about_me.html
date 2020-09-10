@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>About | Bliss Furious</title>
+
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <nav id="sidebar">
+
+        <div class="sidebar-header">
+           <h3 class="adm_hd">Bliss Furious</h3>
+        </div>
+        <ul class="lisst-unstyled components">
+
+            <li>
+                <a href="." class="n_slider">Home</a>
+            </li>
+            <li>
+                <a href="photography" class="n_slider">Photography</a>
+            </li>
+            <li>
+                <a href="travel" class="n_slider">Travel</a>
+            </li>
+            <li>
+                <a href="tech" class="n_slider">Technologies</a>
+            </li>
+            <li class="active">
+                <a href="about" class="n_slider">About</a>
+            </li>
+            <li>
+                <a href="contact" class="n_slider">Contact</a>
+            </li>
+        </ul>
+
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="https://www.facebook.com/nashid.muhammed.t/" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/MUHAMMEDNASHIDT" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://wa.me/7559816534" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/na_szi/" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/nashid-muhammed-196022186/" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    </nav>
+
+
+</div>
+    <section id="content">
+
+
+        <div id="sidebarCollaps">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        <div class="main">
+            <div class="main_img"><img src="{{ pro.cov_img.url }}"></div>
+            <div class="container-fluid prof">
+                <img src="{{ pro.prof_img.url }}">
+                <div class="about_p desc">
+                    <h2>Hello I'm</h2>
+                    <h1>{{ pro.prof_name}}</h1>
+                        <p>{{ pro.description }}</p>
+
+                        <a href="#" class="n_slider">Join Now</a>
+                    <div class="about_c">
+                        <a href="https://www.facebook.com/nashid.muhammed.t/" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/MUHAMMEDNASHIDT" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/7559816534" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/na_szi/" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/nashid-muhammed-196022186/" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </section>
+
+
+
+{% endblock %}
+</body>
+</html>

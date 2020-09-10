@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <title>Bliss Furious</title>
+
+</head>    
+
+<body>
+
+<div class="wrapper">
+
+    <nav id="sidebar">
+
+        <div class="sidebar-header">
+            <h3 class="adm_hd">Bliss Furious</h3>
+        </div>
+        <ul class="lisst-unstyled components">
+
+            <li class="active">
+                <a href="." class="n_slider">Home</a>
+            </li>
+            <li>
+                <a href="photography" class="n_slider">Photography</a>
+            </li>
+            <li>
+                <a href="travel" class="n_slider">Travel</a>
+            </li>
+            <li>
+                <a href="tech" class="n_slider">Technologies</a>
+            </li>
+            <li>
+                <a href="about" class="n_slider">About</a>
+            </li>
+            <li>
+                <a href="contact" class="n_slider">Contact</a>
+            </li>
+        </ul>
+
+    <footer class="container-fluid">
+        <div class="footer">
+            <p>Thank You all. Website develped by Nashid Muhammed</p>
+            <div class="icn">
+                <a href="https://www.facebook.com/nashid.muhammed.t/" ><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/MUHAMMEDNASHIDT" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://wa.me/7559816534" ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/na_szi/" ><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/nashid-muhammed-196022186/" ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    </nav>
+
+    
+</div>
+    <section id="content">
+
+
+        <div id="sidebarCollaps">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        <!--<div class="navbar_menu">
+            <a type="button" id="sidebarCollaps">
+                <i class="fa fa-minus" aria-hidden="true"></i>
+                <i class="fa fa-minus" aria-hidden="true"></i>
+                <i class="fa fa-minus" aria-hidden="true"></i>
+            </a>
+        </div>-->
+
+        <!--
+        <div class="main">
+            <div class="main_img"><img src="{% static 'images/main_full.jpg' %}"></div>
+            <div class="container-fluid prof">
+                <img src="{{prof.prof_img.url}}">
+                <div class="desc">
+                    <h2>Hello I'm</h2>
+                    <h1>{{prof.prof_name}}</h1>
+                    <p>{{prof.description}}</p>
+                    <p><a class="more n_slider">More About Me</a></p>
+                </div>
+            </div>
+        </div>
+        -->
+        <nav class="adm_navba navbar  navbar-expand navbar-light bg-light" >
+            <a class="navbar-brand" href=".">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Welcome to Bliss Furious</a>
+        <div class=" navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <a class="btn btn-warning" href="contact">Login</a>
+            </li>
+          </ul>
+        </div>
+        </nav>
+        <div  style="background:url('static/images/mmgg.jpg')   ;background-position: center center;background-repeat: no-repeat;background-size: cover;">
+            <div class="container-fluid" style="height: calc(100vh);min-height: 600px;color:#ffff;text-align:center;vertical-align: middle;">
+                <div class="container" style="opacity:1;padding-top:400px">
+                <h1>Welcome</h1>
+                <h4>To expose our explored moments to everyone</h4>
+                <a class=" btn btn-outline-info  " href="#explore">Explore</a>
+                    </div>
+            </div>
+        </div>
+        <!--<img src="static/images/mg.jpg" width="100%" height="675px" style="background-color:gray;opacity:0.7">-->
+        <div class="box">
+            <div class="container">
+
+                <div id="messages" class="alert alert-success" role="alert">
+                      {% for message in messages %}
+                        {{message}}
+                      {% endfor %}
+                </div>
+             </div>
+                <h2 style="padding:50px;font-weight:700;background-color:#f4fcf6;border-radius:200px"  id="explore">-Articles-</h2>
+             <div class="row">
+                 <div class="col-sm-8">
+                    <div class="row art">
+                        {% if art %}
+                        {% for i in art %}
+                        <div class="col-sm-6 box_body">
+                            <img class="box_img" src="{{i.cover_img.url}}">
+                            <p class="art_cat" ><a href="{{i.category}}" class="n_slider">{{i.category}}</a></p>
+                            <h2 class="box_hd">{{i.caption}}</h2>
+                            <p class="box_desc"> {{i.description}}</p>
+                            <span>Written By</span>
+                            <p class="auther">{{i.auther}}<span>{{i.date}}</span></p>
+                            <a class="like"><i class="fas fa-heart"></i> {{i.like}}</a>
+                            <a class="view"><i class="fas fa-eye"></i> {{i.view}}</a>
+                            <a class="comment "><i class="fas fa-comment"></i> {{i.comment}}</a><br>
+                            <a class="box_btn n_slider" href="{% url 'article' i.art_id %}">Continue Reading</a>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+                    </div>
+
+
+
+
+                 </div>
+
+                 <div class="col-sm-4 main_side">
+                    <div class="input-group srch ">
+                        <input type="text" class="form-control" placeholder="Search Keyword" >
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="submit"><i class="fas fa-search"></i></button>  
+                        </div>
+                    </div>
+                    <div class="catg">
+                        <h4 class="catH">Categories</h4>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="travel"> Travel <span class="badge badge-success badge-pill">12</span></a></li>
+                        <li class="list-group-item"><a href="tech">Technologies <span class="badge badge-success badge-pill">10</span></a></li>
+                        <li class="list-group-item"><a href="food">Food <span class="badge badge-success badge-pill">0</span></a></li>
+                        <li class="list-group-item"><a href="photography">Photography <span class="badge badge-success badge-pill">17</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="pop">
+                    <h4 class="catH">Popular Articles</h4>
+                    {% for p in art|slice:":5" %}
+                        {% if p.popular == True %}
+                    <div class="pop_art">                        
+                        <a href="#">
+                        <img src="{{ p.cover_img.url }}">
+                        <h1>{{ p.caption }}</h1>
+                        <p>{{ p.date }} {{ p.auther }}</p>
+                    </a>
+                    </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                      
+                 </div>
+              </div>
+                
+                
+                
+        </div>  
+
+
+        <footer class="container-fluid text-center">
+            <div class="container-fluid footer_main">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h5 style="text-align: left;">Naszi</h5>
+                    <h6>Simple Personal Blog</h6>
+                    <p>The Platform for to Explore and Show our Happiness</p>
+                    <a href="#" class="n_slider">Join Now</a>
+                </div>
+                <div class="col-sm-4">
+                  <h5>Quick Links</h5>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="photography">Photography</a></li>
+                    <li class="list-group-item"><a href="travel">Travel </a></li>
+                    <li class="list-group-item"><a href="#">Food </a></li>
+                    <li class="list-group-item"><a href="tech">Technologies</a></li>
+                    <li class="list-group-item"><a href="#">Services</a></li>
+                    <li class="list-group-item"><a href="contact">Contact</a></li>
+                  </ul>
+                  
+                </div>
+               
+                <div class="col-sm-4">
+                    <img src="{% static 'images/main.jpg' %}" class="icon">
+                </div>                
+            </div>
+        </div>      
+        </footer>
+
+    </section>
+
+
+
+{% endblock %}
+    </body>
+</html>
