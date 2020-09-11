@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'naszi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd4e8jiekq4irt2',
+        'HOST': 'ec2-54-156-121-142.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'akawizqmknlxek',
+        'PASSWORD': 'e32266d976f405a1b4bd35ea83623b6469cf7a1386789b00c2f68bd475bf2925'
     }
 }
 
