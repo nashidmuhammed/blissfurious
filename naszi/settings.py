@@ -26,7 +26,7 @@ SECRET_KEY = '@j0ievtn_0ib&_+-q_d4-szz=e78%5bhexn6deq(rl9(&x!qse'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blissfurious.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
