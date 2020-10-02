@@ -1,5 +1,5 @@
 # blissfurious
-www.blissfurious.heroku.com
+https://blissfurious.herokuapp.com
 
 
 Its a Django based webapplication, Hosted in Heroku
